@@ -14,4 +14,13 @@ public class SalesManager {
         }
         return max;
     }
+
+    public int selling() {
+        int sum = 0;
+        for (int j = 0; j < sales.length; j++) {
+            sum = sum + sales[j];
+            sum = sum / sales.length;
+        }
+        return sum;
+    }
 }
