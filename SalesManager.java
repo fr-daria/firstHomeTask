@@ -5,7 +5,7 @@ public class SalesManager {
         this.sales = sales;
     }
 
-    public int max() {
+    public int max(int i) {
         int max = -1;
         for (int sale : sales) {
             if (sale > max) {
