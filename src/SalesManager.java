@@ -10,7 +10,7 @@ public class SalesManager {
         this.sales = sales;
     }
 
-    public long max(long i) {
+    public long max() {
         long max = -1;
         for (long sale : sales) {
 
@@ -21,17 +21,22 @@ public class SalesManager {
         return max;
     }
 
+    public long min() {
+        long min = Integer.MAX_VALUE;
+        for (long sale : sales) {
+
+            if (min > sale) {
+                min = sale;
+            }
+        }
+        return min;
+    }
+
     public long selling() { //40, 20, 5, 76, 12
         long sum = 0;
-        for (long j = 0; j < sales.length; j++) {
-            if (Objects.equals(sales[(int) j], Arrays.stream(sales).min())) {
-                return sum;
-            } else if (Objects.equals(sales[(int) j], Arrays.stream(sales).max())) {
-                return sum;
-            }
-            sum = sum + sales[(int) j];
-            sum = sum / (sales.length - 2);
+        for (long sale : sales) {
+            sum = sum + sale;
         }
-        return sum;
+        return (sum - (min() + max())) / (sales.length - 2);
     }
 }
